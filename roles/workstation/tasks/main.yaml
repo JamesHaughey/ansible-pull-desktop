@@ -3,10 +3,13 @@
   tags: always
 
 - block:
+# General Software
   - import_tasks: software/solaar.yaml
     when:
       - solaar is defined
       - solaar == true
+
+# Internet Browser Software
   - import_tasks: software/chromium.yaml
     when:
       - chromium is defined
@@ -20,6 +23,7 @@
       - google_chrome is defined
       - google_chrome == true
 
+# HashiCorp Software
   - import_tasks: software/packer.yaml
     when:
       - packer is defined
@@ -36,6 +40,8 @@
     when:
       - vault is defined
       - vault == true
+
+# Developer Software
   - import_tasks: software/gitkraken.yaml
     when:
       - gitkraken is defined
@@ -44,3 +50,7 @@
     when:
       - vscode is defined
       - vscode == true
+  - import_tasks: software/zsh.yaml
+    when:
+      - zsh is defined
+      - zsh == true

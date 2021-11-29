@@ -27,8 +27,16 @@ vscode_extensions:
   - redhat.vscode-yaml
   - sandy081.todotasks
   - yzhang.markdown-all-in-one
-
-# Web Browser Application Selection
+zsh: true
+oh_my_zsh_theme: "powerlevel10k/powerlevel10k"
+oh_my_zsh_plugins:
+  - git
+  - python
+  - ansible
+  - github
+  - aws
+  - dotenv
+  - sudo
 chromium: true
 google_chrome: true
 

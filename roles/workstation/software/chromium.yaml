@@ -7,8 +7,6 @@
     state: present
   when:
     - ansible_distribution != "Archlinux"
-    - chromium is defined
-    - chromium == true
 
 - name: software | chromium | install distro package (arch)
   tags: packages,chromium,snap,workstation-packages
@@ -17,5 +15,3 @@
     state: latest
   when:
     - ansible_distribution == "Archlinux"
-    - chromium is defined
-    - chromium == true

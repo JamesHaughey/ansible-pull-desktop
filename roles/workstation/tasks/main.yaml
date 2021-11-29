@@ -1,0 +1,38 @@
+# Load distro-specific variables
+- include_vars: "{{ ansible_distribution }}.yaml"
+  tags: always
+
+- block:
+  - import_tasks: software/solaar.yaml
+    when:
+      - solaar is defined
+      - solaar == true
+  - import_tasks: software/chromium.yaml
+    when:
+      - chromium is defined
+      - chromium == true
+  - import_tasks: software/firefox.yaml
+    when:
+      - firefox is defined
+      - firefox == true
+  - import_tasks: software/google_chrome.yaml
+    when:
+      - google_chrome is defined
+      - google_chrome == true
+
+  - import_tasks: software/packer.yaml
+    when:
+      - packer is defined
+      - packer == true
+  - import_tasks: software/terraform.yaml
+    when:
+      - terraform is defined
+      - terraform == true
+  - import_tasks: software/vagrant.yaml
+    when:
+      - vagrant is defined
+      - vagrant == true
+  - import_tasks: software/vault.yaml
+    when:
+      - vault is defined
+      - vault == true

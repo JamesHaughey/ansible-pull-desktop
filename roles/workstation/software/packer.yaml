@@ -6,4 +6,3 @@
     mode: 0755
     owner: root
     group: root
-  when: packer is defined and packer == true

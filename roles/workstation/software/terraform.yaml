@@ -6,4 +6,3 @@
     mode: 0755
     owner: root
     group: root
-  when: terraform is defined and terraform == true

@@ -1,4 +1,15 @@
 ---
+install_user: tiago
 
-# application selection
+# General Applications
+solaar: true
+
+# Web Browser Application Selection
+chromium: true
+google_chrome: true
+
+# HashiCorp Application Selection
+packer: true
 terraform: true
+vagrant: true
+vault: true

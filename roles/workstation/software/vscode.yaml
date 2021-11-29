@@ -6,8 +6,8 @@
 
 - name: software | visual-studio-code | add repository
   apt_repository:
-    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/ stable main"
-    filename: vscode
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    state: present
   register: vscode_repo
   when: 
     - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]

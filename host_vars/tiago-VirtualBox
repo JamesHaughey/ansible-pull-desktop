@@ -10,7 +10,7 @@ vscode_extensions:
   - 2gua.rainbow-brackets
   - 4ops.packer
   - bbenoist.vagrant
-  - vscode_extensions
+  - codezombiech.gitignore
   - dahong.theme-bear
   - eamodio.gitlens
   - esbenp.prettier-vscode

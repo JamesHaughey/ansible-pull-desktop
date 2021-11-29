@@ -3,6 +3,7 @@ install_user: tiago
 
 # General Applications
 solaar: true
+vscode: true
 
 # Web Browser Application Selection
 chromium: true

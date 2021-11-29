@@ -36,3 +36,7 @@
     when:
       - vault is defined
       - vault == true
+  - import_tasks: software/vscode.yaml
+    when:
+      - vscode is defined
+      - vscode == true

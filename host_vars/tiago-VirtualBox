@@ -25,7 +25,7 @@ vscode_extensions:
   - PKief.material-icon-theme
   - redhat.vscode-yaml
   - sandy081.todotasks
-  - zhang.markdown-all-in-one
+  - yzhang.markdown-all-in-one
 
 # Web Browser Application Selection
 chromium: true

@@ -4,7 +4,8 @@ install_user: tiago
 # General Applications
 solaar: true
 
-# IDE Applications
+# Development Applications
+gitkraken: true
 vscode: true
 vscode_extensions:
   - 2gua.rainbow-brackets

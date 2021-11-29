@@ -36,6 +36,10 @@
     when:
       - vault is defined
       - vault == true
+  - import_tasks: software/gitkraken.yaml
+    when:
+      - gitkraken is defined
+      - gitkraken == true
   - import_tasks: software/vscode.yaml
     when:
       - vscode is defined

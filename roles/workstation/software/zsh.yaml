@@ -39,8 +39,7 @@
   loop:
     - zshrc
     - p10k.zsh
-  args:
-    creates: '~{{ install_user }}/.{{ item }}'
+  force: no
   
 - name: software | zsh | clone powerlevel10k
   become: yes

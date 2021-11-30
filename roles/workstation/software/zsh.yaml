@@ -46,7 +46,7 @@
   command: 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git .oh-my-zsh/custom/themes/powerlevel10k'
   args:
     chdir: '~{{ install_user }}'
-    creates: '~{{ install_user }}/oh-my-zsh/custom/themes/powerlevel10k'
+    creates: '~{{ install_user }}/.oh-my-zsh/custom/themes/powerlevel10k'
 
 
 

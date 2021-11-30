@@ -6,3 +6,8 @@
     mode: 0755
     owner: root
     group: root
+  register: terraform_install
+
+- name: software | terraform | install autocomplete
+  command: 'terraform -install-autocomplete'
+  when: terraform_install.changed

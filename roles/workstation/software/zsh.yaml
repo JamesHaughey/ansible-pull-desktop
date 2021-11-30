@@ -48,7 +48,22 @@
     chdir: '~{{ install_user }}'
     creates: '~{{ install_user }}/.oh-my-zsh/custom/themes/powerlevel10k'
 
+- name: software | zsh | create fonts folder
+  file:
+    path: '~{{ install_user }}/.fonts'
+    state: directory
+    mode: '0755'
 
+- name: software | zsh | install nerdfonts
+  get_url:
+    url: 'https://github.com/romkatv/powerlevel10k-media/raw/master/{{ item }}'
+    dest: '~{{ install_user }}/.fonts/{{ item }}'
+    mode: '0755'
+  loop:
+    - "MesloLGS%20NF%20Regular.ttf"
+    - "MesloLGS%20NF%20Bold.ttf"
+    - "MesloLGS%20NF%20Italic.ttf"
+    - "MesloLGS%20NF%20Bold%20Italic.ttf"
 
 # - name: oh-my-zsh
 #   command: sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

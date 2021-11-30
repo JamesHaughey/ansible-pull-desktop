@@ -84,6 +84,10 @@ DISABLE_AUTO_UPDATE="true"
 plugins=({{ oh_my_zsh_plugins | join(' ') }})
 
 source $ZSH/oh-my-zsh.sh
+{% if zsh_user_plugins %}
+source /home/{{ install_user }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/{{ install_user }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{% endif %}
 
 # User configuration
 

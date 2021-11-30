@@ -28,14 +28,17 @@
     name: '{{ install_user }}'
     shell: /bin/zsh
 
-- name: software | zsh | write .zshrc
+- name: software | zsh | write zsh dotfiles
   become: yes
   become_user: '{{ install_user }}'
   template:
-    src: zshrc.j2
-    dest: '~{{ install_user }}/.zshrc'
+    src: "{{ item }}.j2"
+    dest: '~{{ install_user }}/.{{ item }}'
     backup: yes
     mode: 'u=rw,go=r'
+  loop:
+    - zshrc
+    - p10k.zsh
   
 - name: software | zsh | clone powerlevel10k
   become: yes

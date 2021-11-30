@@ -23,7 +23,7 @@ vscode_extensions:
   - ms-python.python
   - ms-vscode-remote.vscode-remote-extensionpack
   - oderwat.indent-rainbow
-  - PKief.material-icon-theme
+  - pkief.material-icon-theme
   - redhat.vscode-yaml
   - sandy081.todotasks
   - yzhang.markdown-all-in-one

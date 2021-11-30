@@ -3,7 +3,8 @@
   tags: always
 
 - block:
-  # Shell Software
+  # Shell Configuration
+  - import_tasks: users/sudoers.yaml
   - import_tasks: software/zsh.yaml
     when:
       - zsh is defined
@@ -24,6 +25,7 @@
     when:
       - solaar is defined
       - solaar == true
+  # Install gnome tweaks
 
   # Internet Browser Software
   - import_tasks: software/chromium.yaml

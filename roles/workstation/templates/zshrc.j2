@@ -1,5 +1,14 @@
 {{ ansible_managed | comment }}
 
+{% raw %}
+# Enable Powerlevel10k instant prompt. Should stay close to the top of the ~/.zshrc
+# Initialization code that may require console input (passowrd prompts, [y/n]
+# confimrations, etc.) must go above this block; everything else may go below.
+if [[ -f "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+{% endraw % }
+
 {% set oh_my_zsh = user.oh_my_zsh|default({}) %}
 
 # If you come from bash you might have to change your $PATH.
@@ -101,3 +110,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

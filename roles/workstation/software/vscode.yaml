@@ -30,3 +30,5 @@
   become: yes
   become_user: "{{ install_user }}"
   with_items: "{{ vscode_extensions }}"
+  args:
+    creates: '~{{ install_user }}/.vscode/extensions/{{ item }}*'

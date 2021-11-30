@@ -36,11 +36,11 @@
     dest: '~{{ install_user }}/.{{ item }}'
     backup: yes
     mode: 'u=rw,go=r'
+    force: no
   loop:
     - zshrc
     - p10k.zsh
-  force: no
-  
+
 - name: software | zsh | clone powerlevel10k
   become: yes
   become_user: '{{ install_user }}'

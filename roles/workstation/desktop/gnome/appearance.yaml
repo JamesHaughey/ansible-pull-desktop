@@ -22,6 +22,10 @@
     - wallpaper_url is not defined
     - wallpaper_file is defined
 
+- name: gnome | appearance | install python psutil
+  pip:
+    name: psutil
+
 - name: gnome | appearance | set wallpaper
   tags: gnome,gnome-wallpaper
   become_user: "{{ install_user }}"

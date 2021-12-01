@@ -65,3 +65,7 @@
     when:
       - desktop is defined
       - desktop == "gnome"
+  - import_tasks: desktop/gnome/packages.yaml
+    when:
+      - desktop is defined
+      - desktop == "gnome"

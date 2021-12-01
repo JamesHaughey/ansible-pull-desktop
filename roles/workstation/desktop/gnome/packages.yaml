@@ -47,5 +47,5 @@
     gnome_extension_info: "{{ item.json }}"
   loop: "{{ r_gnome_extension_info.results }}"
   loop_control:
-    label: "{{ item.name }}"
+    label: "{{ item.json.name }}"
   when: item.status == 200

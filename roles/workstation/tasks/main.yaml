@@ -3,6 +3,12 @@
   tags: always
 
 - block:
+  # Desktop Configuration
+  - import_tasks: desktop/gnome/appearance.yaml
+    when:
+      - desktop is defined
+      - desktop == "gnome"
+
   # Shell Configuration
   - import_tasks: users/sudoers.yaml
   - import_tasks: software/zsh.yaml

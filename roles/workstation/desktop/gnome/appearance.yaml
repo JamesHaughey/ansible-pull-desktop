@@ -1,0 +1,35 @@
+- name: gnome | appearance | download wallpaper file
+  tags: gnome,gnome-wallpaper
+  get_url:
+    url: "{{ wallpaper_url }}"
+    dest: "/usr/share/backgrounds/{{ install_user }}-wallpaper.png"
+    owner: root
+    group: root
+    mode: 0644
+  when:
+    - wallpaper_url is defined
+    - wallpaper_file is not defined
+
+- name: gnome | appearance | copy wallpaper file
+  tags: gnome,gnome-wallpaper
+  copy:
+    src: "gnome/{{ wallpaper_file }}"
+    dest: "/usr/share/backgrounds/{{ install_user }}-wallpaper.png"
+    owner: root
+    group: root
+    mode: 0644
+  when:
+    - wallpaper_url is not defined
+    - wallpaper_file is defined
+
+- name: gnome | appearance | set wallpaper
+  tags: gnome,gnome-wallpaper
+  become_user: jay
+  dconf:
+    key: "/org/gnome/desktop/background/picture-uri"
+    value: "'file:///usr/share/backgrounds/{{ install_user }}-wallpaper.png'"
+
+
+
+
+

@@ -3,12 +3,6 @@
   tags: always
 
 - block:
-  # Desktop Configuration
-  - import_tasks: desktop/gnome/appearance.yaml
-    when:
-      - desktop is defined
-      - desktop == "gnome"
-
   # Shell Configuration
   - import_tasks: users/sudoers.yaml
   - import_tasks: software/zsh.yaml
@@ -17,6 +11,7 @@
       - zsh == true
 
   # Developer Software
+  - import_tasks: software/python.yaml # Python is a dependancy for future tasks so always installs
   - import_tasks: software/gitkraken.yaml
     when:
       - gitkraken is defined
@@ -64,3 +59,9 @@
     when:
       - vault is defined
       - vault == true
+
+  # Desktop Configuration
+  - import_tasks: desktop/gnome/appearance.yaml
+    when:
+      - desktop is defined
+      - desktop == "gnome"

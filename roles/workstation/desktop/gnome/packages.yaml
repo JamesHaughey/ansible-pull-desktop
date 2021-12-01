@@ -6,11 +6,11 @@
       # - file-roller
       # - "{{ gdm_package }}"
       # - gedit
-      # - gnome-backgrounds
+      - gnome-backgrounds
       # - gnome-books
       # - gnome-boxes
-      # - gnome-control-center
-      # - gnome-disk-utility
+      - gnome-control-center
+      - gnome-disk-utility
 #      - gnome-documents
       - gnome-icon-theme
 #      - gnome-music
@@ -18,9 +18,9 @@
       # - gnome-power-manager
       # - gnome-remote-desktop
       # - gnome-shell
-      # - gnome-shell-extensions
-      # - gnome-system-monitor
-      # - gnome-terminal
+      - gnome-shell-extensions
+      - gnome-system-monitor
+      - gnome-terminal
       # - gnome-todo
       - gnome-tweaks
       - nautilus

@@ -24,8 +24,8 @@
       file:
         path: "~{{ install_user }}/.local/share/gnome-shell/extensions/{{ gnome_extension_info.uuid }}"
         state: directory
-        owner: "{{ ansible_user_uid }}"
-        group: "{{ ansible_user_gid }}"
+        owner: "{{ install_user }}"
+        group: "{{ install_user }}"
         mode: '0775'
 
     - name: Install Gnome Shell extension - {{ gnome_extension_info.name }}

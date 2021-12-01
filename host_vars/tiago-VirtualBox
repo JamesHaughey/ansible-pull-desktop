@@ -6,6 +6,7 @@ desktop: gnome
 wallpaper_url: http://files.smashingmagazine.com/wallpapers/dec-20/winter-landscape/nocal/dec-20-winter-landscape-nocal-1920x1080.png
 gnome_extension_ids:
   - 1160 # Dash-to-panel
+  - 3088 # Extension-List (added for testing)
 
 # General Applications
 solaar: true

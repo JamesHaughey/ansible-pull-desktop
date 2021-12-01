@@ -42,7 +42,7 @@
   register: r_gnome_extension_info
   ignore_errors: yes
 
-- include_tasks: desktop/gnome/install_extension.yml
+- include_tasks: desktop/gnome/install_extension.yaml
   vars:
     gnome_extension_info: "{{ item.json }}"
   loop: "{{ r_gnome_extension_info.results }}"

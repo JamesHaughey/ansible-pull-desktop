@@ -51,7 +51,7 @@
   become_user: "{{ install_user }}"
   dconf:
     key: "/org/gnome/desktop/interface/icon-theme"
-    value: "'Hey-blue-dark'"
+    value: "'Hey-classic-dark'"
 
 
 

@@ -29,7 +29,29 @@
     key: "/org/gnome/desktop/background/picture-uri"
     value: "'file:///usr/share/backgrounds/{{ install_user }}-wallpaper.png'"
 
+- name: gnome | appearance | create icon folder
+  tags: gnome,gnome-icons
+  file:
+    path: '~{{ install_user }}/.local/share/icons'
+    state: directory
+    mode: '0755'
 
+# ~/.local/share/icons/
+- name: gnome | appearance | download hey icons
+  tags: gnome,gnome-icons
+  unarchive:
+    src: https://github.com/JamesHaughey/linux_installs/raw/master/Hey-classic.tar.gz
+    dest: '~{{ install_user }}/.local/share/icons'
+    remote_src: yes
+    mode: 0755
+    owner: '{{ install_user }}'
+    group: '{{ install_user }}'
+
+- name: gnome | appearance | set icon theme
+  become_user: "{{ install_user }}"
+  dconf:
+    key: "/org/gnome/desktop/interface/icon-theme"
+    value: "'Hey-blue-dark'"
 
 
 

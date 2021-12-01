@@ -24,7 +24,7 @@
 
 - name: gnome | appearance | set wallpaper
   tags: gnome,gnome-wallpaper
-  become_user: jay
+  become_user: {{ install_user }}
   dconf:
     key: "/org/gnome/desktop/background/picture-uri"
     value: "'file:///usr/share/backgrounds/{{ install_user }}-wallpaper.png'"

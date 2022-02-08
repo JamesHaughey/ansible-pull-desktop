@@ -3,6 +3,8 @@
   tags: always
 
 - block:
+  # System Installs
+  - import_tasks: software/system.yaml
   # Shell Configuration
   - import_tasks: users/sudoers.yaml
   - import_tasks: software/zsh.yaml

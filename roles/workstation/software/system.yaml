@@ -1,4 +1,4 @@
-- name: software | python | apt dependancies
+- name: software | system | miscellaneous
   apt:
     state: present
     pkg:

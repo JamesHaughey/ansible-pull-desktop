@@ -1,0 +1,5 @@
+- name: software | python | apt dependancies
+  apt:
+    state: present
+    pkg:
+      - snapd

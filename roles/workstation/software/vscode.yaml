@@ -1,0 +1,34 @@
+- name: software | visual-studio-code | add repository key
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+  when: 
+    - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+- name: software | visual-studio-code | add repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    state: present
+  register: vscode_repo
+  when: 
+    - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+- name: software | visual-studio-code | update sources (repo added or changed)
+  apt:
+    update_cache: yes
+  changed_when: False
+  when: 
+    - vscode_repo.changed
+
+- name: software | visual-studio-code | install package
+  apt:
+    name: code
+  when: 
+    - ansible_distribution in ["Debian", "Pop!_OS", "Ubuntu"]
+
+- name: software | visual-studio-code | install VSCode extensions
+  shell: code --install-extension {{ item }}
+  become: yes
+  become_user: "{{ install_user }}"
+  with_items: "{{ vscode_extensions }}"
+  args:
+    creates: '~{{ install_user }}/.vscode/extensions/{{ item }}*'

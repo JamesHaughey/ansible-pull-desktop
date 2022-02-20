@@ -1,0 +1,5 @@
+- name: software | system | miscellaneous
+  apt:
+    state: present
+    pkg:
+      - snapd

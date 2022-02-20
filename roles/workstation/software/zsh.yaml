@@ -1,0 +1,90 @@
+- name: software | zsh | install package
+  apt:
+    name: zsh
+
+- name: software | zsh | install oh-my-zsh
+  # Copied from https://github.com/gantsign/ansible-role-oh-my-zsh
+  become: yes
+  become_user: '{{ install_user }}'
+  # core.autocrlf=input prevents https://github.com/robbyrussell/oh-my-zsh/issues/4402
+  command: 'git clone -c core.autocrlf=input --depth=1 https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh'
+  args:
+    chdir: '~{{ install_user }}'
+    creates: '~{{ install_user }}/.oh-my-zsh'
+
+- name: software | zsh | set permissions of oh-my-zsh
+  become: yes
+  file:
+    path: '~{{ install_user }}/.oh-my-zsh'
+    # Prevent the cloned repository from having insecure permissions. Failing to do
+    # so causes compinit() calls to fail with "command not found: compdef" errors
+    # for users with insecure umasks (e.g., "002", allowing group writability).
+    mode: 'go-w'
+    recurse: yes
+
+- name: software | zsh | set default shell
+  become: yes
+  user:
+    name: '{{ install_user }}'
+    shell: /bin/zsh
+
+- name: software | zsh | write zsh dotfiles
+  become: yes
+  become_user: '{{ install_user }}'
+  template:
+    src: "{{ item }}.j2"
+    dest: '~{{ install_user }}/.{{ item }}'
+    backup: yes
+    mode: 'u=rw,go=r'
+    force: no
+  loop:
+    - zshrc
+    - p10k.zsh
+
+- name: software | zsh | clone powerlevel10k
+  become: yes
+  become_user: '{{ install_user }}'
+  command: 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git .oh-my-zsh/custom/themes/powerlevel10k'
+  args:
+    chdir: '~{{ install_user }}'
+    creates: '~{{ install_user }}/.oh-my-zsh/custom/themes/powerlevel10k'
+
+- name: software | zsh | create fonts folder
+  file:
+    path: '~{{ install_user }}/.fonts'
+    state: directory
+    mode: '0755'
+
+- name: software | zsh | install nerdfonts
+  get_url:
+    url: 'https://github.com/romkatv/powerlevel10k-media/raw/master/{{ item }}'
+    dest: '~{{ install_user }}/.fonts/{{ item }}'
+    mode: '0755'
+  loop:
+    - "MesloLGS%20NF%20Regular.ttf"
+    - "MesloLGS%20NF%20Bold.ttf"
+    - "MesloLGS%20NF%20Italic.ttf"
+    - "MesloLGS%20NF%20Bold%20Italic.ttf"
+
+- name: software | zsh | clone zsh-users plugins
+  become: yes
+  become_user: '{{ install_user }}'
+  command: 'git clone https://github.com/zsh-users/{{ item }}.git .oh-my-zsh/custom/plugins/{{ item }}'
+  args:
+    chdir: '~{{ install_user }}'
+    creates: '~{{ install_user }}/.oh-my-zsh/custom/plugins/{{ item }}'
+  loop:
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting
+  when:
+    - zsh_user_plugins is defined
+    - zsh_user_plugins == true
+
+- name: software | zsh | write zsh basic aliases
+  become: yes
+  become_user: '{{ install_user }}'
+  template:
+    src: "basic_aliases.zsh.j2"
+    dest: '~{{ install_user }}/.oh-my-zsh/custom/basic_aliases.zsh'
+    backup: yes
+    mode: 'u=rw,go=r'

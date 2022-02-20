@@ -1,0 +1,15 @@
+---
+
+# application selection
+authy: true
+chromium: true
+firefox: true
+libreoffice: true
+packer: true
+packer_version: 1.7.7
+terraform: true
+spotify: true
+thunderbird: true
+vagrant: true
+vagrant_version: 2.2.18
+virtualbox: true

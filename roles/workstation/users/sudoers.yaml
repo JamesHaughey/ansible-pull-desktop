@@ -1,0 +1,20 @@
+- name: users | sudoers | Make sure we have a 'sudo' group
+  group:
+    name: sudo
+    state: present
+
+- name: users | sudoers | Allow 'sudo' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+
+- name: users | sudoers | add install user to sudo group
+  user:
+    name: "{{ item }}"
+    groups: sudo
+    append: yes
+  with_items:
+    - "{{ install_user }}"

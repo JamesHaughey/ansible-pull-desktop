@@ -3,8 +3,3 @@
   package:
     name: solaar
     state: latest
-
-- name: software | make sure solaar doesn't autostart
-  file:
-    path: /etc/xdg/autostart/solaar.desktop
-    state: absent

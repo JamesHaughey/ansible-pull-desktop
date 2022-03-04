@@ -47,6 +47,8 @@ oh_my_zsh_plugins:
   - aws
   - dotenv
   - sudo
+  - last-working-dir
+  - zhs-autosuggestions
 
 # Internet Browser Applications
 chromium: true

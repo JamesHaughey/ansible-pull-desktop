@@ -48,7 +48,7 @@ oh_my_zsh_plugins:
   - dotenv
   - sudo
   - last-working-dir
-  - zhs-autosuggestions
+  - zsh-autosuggestions
 
 # Internet Browser Applications
 chromium: true

@@ -13,7 +13,7 @@
       - zsh == true
 
   # Developer Software
-  - import_tasks: software/python.yaml # Python is a dependancy for future tasks so always installs
+  # - import_tasks: software/python.yaml # Python is a dependancy for future tasks so always installs
   - import_tasks: software/gitkraken.yaml
     when:
       - gitkraken is defined

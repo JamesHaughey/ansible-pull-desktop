@@ -10,7 +10,8 @@ Based upon https://github.com/LearnLinuxTV/personal_ansible_desktop_configs
 # Ansible pull from Host Machine
 
 ```
-ansible-pull -U https://github.com/JamesHaughey/ansible-pull-desktop.git -C develop
+sudo apt install git ansible
+ansible-pull -U https://github.com/JamesHaughey/ansible-pull-desktop.git -C main
 ```
 
 # Apt Install Notes

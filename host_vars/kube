@@ -1,0 +1,39 @@
+---
+install_user: tiago
+
+vscode: true
+vscode_extensions:
+  - 2gua.rainbow-brackets
+  - 4ops.packer
+  - bbenoist.vagrant
+  - codezombiech.gitignore
+  - dahong.theme-bear
+  - eamodio.gitlens
+  - esbenp.prettier-vscode
+  - golang.go
+  - hashicorp.terraform
+  - mechatroner.rainbow-csv
+  - mhutchie.git-graph
+  - ms-azuretools.vscode-docker
+  - ms-python.python
+  - ms-vscode-remote.vscode-remote-extensionpack
+  - oderwat.indent-rainbow
+  - pkief.material-icon-theme
+  - redhat.vscode-yaml
+  - sandy081.todotasks
+  - yzhang.markdown-all-in-one
+
+# Shell Applications
+zsh: true
+zsh_user_plugins: true
+oh_my_zsh_theme: "powerlevel10k/powerlevel10k"
+oh_my_zsh_plugins:
+  - git
+  - python
+  - ansible
+  - github
+  - aws
+  - dotenv
+  - sudo
+  - last-working-dir
+  - zsh-autosuggestions

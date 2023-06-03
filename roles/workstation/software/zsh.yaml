@@ -65,6 +65,9 @@
     - "MesloLGS%20NF%20Bold.ttf"
     - "MesloLGS%20NF%20Italic.ttf"
     - "MesloLGS%20NF%20Bold%20Italic.ttf"
+  when:
+    - zsh_fonts is defined
+    - zsh_fonts == true
 
 - name: software | zsh | clone zsh-users plugins
   become: yes

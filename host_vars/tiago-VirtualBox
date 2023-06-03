@@ -37,6 +37,7 @@ vscode_extensions:
 
 # Shell Applications
 zsh: true
+zsh_fonts: true
 zsh_user_plugins: true
 oh_my_zsh_theme: "powerlevel10k/powerlevel10k"
 oh_my_zsh_plugins:

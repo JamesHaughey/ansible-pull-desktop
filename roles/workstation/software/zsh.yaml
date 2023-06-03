@@ -54,6 +54,9 @@
     path: '~{{ install_user }}/.fonts'
     state: directory
     mode: '0755'
+  when:
+    - zsh_fonts is defined
+    - zsh_fonts == true
 
 - name: software | zsh | install nerdfonts
   get_url:
